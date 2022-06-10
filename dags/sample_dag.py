@@ -11,7 +11,7 @@ with DAG(
     start_task = EmptyOperator(task_id="start")
 
     print_hello_world = BashOperator(
-        task_id="print_hello_world", bash_command='echo "HelloWorld!"'
+        task_id="print_hello_world", bash_command='echo "\n\n\n\nHello MDA!!!\n\n\n"'
     )
 
     end_task = EmptyOperator(task_id="end")

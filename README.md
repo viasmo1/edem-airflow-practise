@@ -26,3 +26,9 @@ Once the installation is finished, go to `http://localhost:8080`
 
 User: `airflow`
 Pass: `airflow`
+
+## Exercise
+
+We want to save in a JSON file the posts of a Wordpress website. How can we do that?
+
+Example of Wordpress websites in this [url](https://elementor.com/blog/famous-wordpress-websites/)

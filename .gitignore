@@ -1,4 +1,6 @@
 /venv
 /logs
 /plugins
-/dags/__pycache__
+*__pycache__
+/postgres_db
+/.vscode

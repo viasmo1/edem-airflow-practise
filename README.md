@@ -1,5 +1,7 @@
 # EDEM Airflow Practise
 
+After cloning this repo, follow the steps below
+
 ### Setting up a new virtual environment
 
 Creating a new virtual environment. Run in the terminal the following command:
@@ -20,3 +22,7 @@ Run in the terminal the following command:
 
 `docker-compose up`
 
+Once the installation is finished, go to `http://localhost:8080`
+
+User: `airflow`
+Pass: `airflow`

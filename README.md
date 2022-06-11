@@ -18,6 +18,32 @@ Install requirements. Run in the terminal the following command:
 
 ### Launching Airflow
 
+Create a file named `env_vars.env` with the following content:
+
+```
+# Meta-Database
+POSTGRES_USER=airflow
+POSTGRES_PASSWORD=airflow
+POSTGRES_DB=airflow
+
+# Airflow Core
+AIRFLOW__CORE__FERNET_KEY=UKMzEm3yIuFYEq1y3-2FxPNWSVwRASpahmQ9kQfEr8E=
+AIRFLOW__CORE__EXECUTOR=LocalExecutor
+AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION=True
+AIRFLOW__CORE__LOAD_EXAMPLES=False
+AIRFLOW_UID=0
+
+# Backend DB
+AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+AIRFLOW__DATABASE__LOAD_DEFAULT_CONNECTIONS=False
+
+# Airflow Init
+_AIRFLOW_DB_UPGRADE=True
+_AIRFLOW_WWW_USER_CREATE=True
+_AIRFLOW_WWW_USER_USERNAME=airflow
+_AIRFLOW_WWW_USER_PASSWORD=airflow
+```
+
 Run in the terminal the following command:
 
 `docker-compose up`

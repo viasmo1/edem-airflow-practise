@@ -33,9 +33,9 @@ Pass: `airflow`
 
 - Create a DAG (sample_dag) with three tasks (TIP: check which type
   of [operator](https://airflow.apache.org/docs/apache-airflow/stable/_api/airflow/operators/index.html) is each task):
-    - start: does nothing
+    - start: does nothing, just organises visually the workflow
     - log_print: prints "HELLO MDA!!!" in the task log
-    - end: does nothing
+    - end: does nothing, just organises visually the workflow
 - Modify the DAG so that it tells us if today is Saturday or not (TIP: use branches)
 - Is the end_task status correct after the branches are done? (TIP: trigger rules)
 - Find a way to better organize and visualize the DAG (TIP: use task groups)

@@ -18,7 +18,12 @@ Install requirements. Run in the terminal the following command:
 
 ### Launching Airflow
 
-Run in the terminal the following command:
+- Try to launch Airflow in docker compose with LocalExecutor configuration
+
+You can also wait until your teacher gives you the solution but it's always worth to try!
+Once you have the docker-compose.yml:
+
+- Run in the terminal the following command:
 
 `docker-compose up`
 

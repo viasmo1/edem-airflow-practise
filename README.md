@@ -29,6 +29,20 @@ Pass: `airflow`
 
 ## Exercise
 
+### DAG practise
+
+- Create a DAG (sample_dag) with three tasks (TIP: check which type
+  of [operator](https://airflow.apache.org/docs/apache-airflow/stable/_api/airflow/operators/index.html) is each task):
+    - start: does nothing
+    - log_print: prints "HELLO MDA!!!" in the task log
+    - end: does nothing
+- Modify the DAG so that it tells us if today is Saturday or not (TIP: use branches)
+- Is the end_task status correct after the branches are done? (TIP: trigger rules)
+- Find a way to better organize and visualize the DAG (TIP: use task groups)
+- Add DAG documentation with a brief explanation of what the DAG does
+
+### ETL practise: WordPress
+
 We want to save in a JSON file the posts of a Wordpress website. How can we do that?
 
 Example of Wordpress websites in this [url](https://elementor.com/blog/famous-wordpress-websites/)

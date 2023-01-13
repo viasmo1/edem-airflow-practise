@@ -43,6 +43,6 @@ Pass: `airflow`
 
 ### ETL practise: WordPress
 
-We want to save in a JSON file the posts of a Wordpress website. How can we do that?
+We want to save in a JSON file the posts of a WordPress website. How can we do that?
 
-Example of Wordpress websites in this [url](https://elementor.com/blog/famous-wordpress-websites/)
+Example of WordPress websites in this [url](https://elementor.com/blog/famous-wordpress-websites/)

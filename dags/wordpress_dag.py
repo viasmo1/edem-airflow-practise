@@ -5,7 +5,11 @@ from airflow.operators.python_operator import PythonOperator
 from datetime import datetime
 
 with DAG(
-    dag_id="wordpress_dag", start_date=datetime(2022, 5, 28), schedule_interval=None
+    dag_id="wordpress_dag",
+    start_date=datetime(2022, 5, 28),
+    schedule_interval=None,
+    tags=["wordpress"],
+    default_args={'retries': 2},
 ) as dag:
 
     start_task = EmptyOperator(task_id="start_wordpress")

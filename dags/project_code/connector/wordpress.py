@@ -1,5 +1,6 @@
 import requests
 
+
 class Wordpress:
     def __init__(self, website):
          self.url = website + "/wp-json/wp/v2/posts?per_page=100"

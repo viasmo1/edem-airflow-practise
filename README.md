@@ -51,5 +51,6 @@ Pass: `airflow`
 - We want to save in a JSON file the posts of a WordPress website. How can we do that?
 - What if we want to save multiple websites, but we want the tasks to be executed one by one? (TIP: use a pool or limit
   number of active tasks per DAG)
+- What if we want to split the results per day?
 
 Example of WordPress websites in this [url](https://elementor.com/blog/famous-wordpress-websites/)

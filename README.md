@@ -6,19 +6,28 @@ After cloning this repo, follow the steps below
 
 Ensure you're using Python 3.8 to 3.11. You can check your Python version by running the following command in your terminal:
 
-`python3 --version`
+```bash
+python3 --version
+```
 
 Creating a new virtual environment. Run in the terminal the following command:
 
-`python3 -m venv venv`
+```bash
+python3 -m venv venv
+```
 
 Activate it. Run in the terminal the following command:
 
-`source venv/bin/activate`
+```bash
+source venv/bin/activate
+```
 
 Install requirements. Run in the terminal the following command:
 
-`pip install -r requirements.txt`
+```bash
+pip install --upgrade pip
+pip install -r requirements.txt
+```
 
 ### Launching Airflow
 
@@ -29,7 +38,9 @@ Once you have the docker-compose.yml:
 
 - Run in the terminal the following command:
 
-`docker-compose up`
+```bash
+docker-compose up
+```
 
 Once the installation is finished, go to `http://localhost:8080`
 

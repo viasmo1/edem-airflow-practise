@@ -4,6 +4,10 @@ After cloning this repo, follow the steps below
 
 ### Setting up a new virtual environment
 
+Ensure you're using Python 3.8 to 3.11. You can check your Python version by running the following command in your terminal:
+
+`python3 --version`
+
 Creating a new virtual environment. Run in the terminal the following command:
 
 `python3 -m venv venv`

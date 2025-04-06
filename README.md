@@ -4,7 +4,7 @@ After cloning this repo, follow the steps below
 
 ### Setting up a new virtual environment
 
-Ensure you're using Python 3.8 to 3.11. You can check your Python version by running the following command in your terminal:
+Ensure you're using Python 3.8 to 3.12. You can check your Python version by running the following command in your terminal:
 
 ```bash
 python3 --version
@@ -52,7 +52,7 @@ Pass: `airflow`
 ### DAG practise
 
 - Create a DAG (sample_dag) with three tasks (TIP: check which type
-  of [operator](https://airflow.apache.org/docs/apache-airflow/stable/_api/airflow/operators/index.html) is each task):
+  of [operator](https://airflow.apache.org/docs/apache-airflow/stable/operators-and-hooks-ref.html) is each task):
     - start: does nothing, just organises visually the workflow
     - log_print: prints "HELLO MDA!!!" in the task log
     - end: does nothing, just organises visually the workflow

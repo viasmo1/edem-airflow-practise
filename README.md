@@ -61,6 +61,12 @@ Pass: `airflow`
 - Find a way to better organize and visualize the DAG (TIP: use task groups)
 - Add DAG documentation with a brief explanation of what the DAG does
 
+- Run the DAG `branch_debug`. What do you see? Try to debug it.
+- Explain DAG `explain_dag`:
+  - What happens if the `transform` task fails?
+  - What happens if the `load` task is skipped? Will the complete notification still run?
+- Analyse DAG `dag_refactor`. How do you think it can be improved? (TIP: refactor)
+
 ### ETL practise: WordPress
 
 - We want to save in a JSON file the posts of a WordPress website. How can we do that?
@@ -69,3 +75,7 @@ Pass: `airflow`
 - What if we want to split the results per day?
 
 Example of WordPress websites in this [url](https://elementor.com/blog/famous-wordpress-websites/)
+
+### Extras
+
+- What if we want to use pandas inside a python operator? (TIP: use a requirements.txt file)

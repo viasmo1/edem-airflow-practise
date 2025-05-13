@@ -67,6 +67,18 @@ Pass: `airflow`
 - How would you prevent the behavior of the previous question? (TIP: DAG `catchup` parameter)
 - Now imagine that you want the `catchup` to be true but you only want to execute 5 days. How would you do that? (TIP: control parallelism in the DAG)
 
+#### DAG debugging
+
+- Run the DAG `branch_debug`:
+  - What do you see? Try to debug it.
+  - How would you pass the number as a parameter? (TIP: use `Param`)
+- Explain DAG `explain_dag`:
+  - What happens if the `transform` task fails?
+  - How would you make it try again if it fails?
+  - What happens if the `load` task is skipped? Will the complete notification still run?
+- Analyse DAG `dag_refactor`:
+  - How do you think it can be improved? (TIP: check Dynamic DAGs)
+
 ### ETL practise: WordPress
 
 - We want to save in a JSON file the posts of a WordPress website. How can we do that?

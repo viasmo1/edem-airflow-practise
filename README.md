@@ -51,15 +51,21 @@ Pass: `airflow`
 
 ### DAG practise
 
+#### Sample DAG
+
 - Create a DAG (sample_dag) with three tasks (TIP: check which type
   of [operator](https://airflow.apache.org/docs/apache-airflow/stable/operators-and-hooks-ref.html) is each task):
     - start: does nothing, just organises visually the workflow
     - log_print: prints "HELLO MDA!!!" in the task log
     - end: does nothing, just organises visually the workflow
 - Modify the DAG so that it tells us if today is Saturday or not (TIP: use branches)
+- Label the branches arrows (TIP: use Label edge modifier)
 - Is the end_task status correct after the branches are done? (TIP: trigger rules)
 - Find a way to better organize and visualize the DAG (TIP: use task groups)
 - Add DAG documentation with a brief explanation of what the DAG does
+- Set the `start_date` to a date in the past (a few days ago). What happens when you activate the DAG?
+- How would you prevent the behavior of the previous question? (TIP: DAG `catchup` parameter)
+- Now imagine that you want the `catchup` to be true but you only want to execute 5 days. How would you do that? (TIP: control parallelism in the DAG)
 
 ### ETL practise: WordPress
 

@@ -63,6 +63,7 @@ Pass: `airflow`
 - Is the end_task status correct after the branches are done? (TIP: trigger rules)
 - Find a way to better organize and visualize the DAG (TIP: use task groups)
 - Add DAG documentation with a brief explanation of what the DAG does
+- Add tags to the DAG
 - Set the `start_date` to a date in the past (a few days ago). What happens when you activate the DAG?
 - How would you prevent the behavior of the previous question? (TIP: DAG `catchup` parameter)
 - Now imagine that you want the `catchup` to be true but you only want to execute 5 days. How would you do that? (TIP: control parallelism in the DAG)

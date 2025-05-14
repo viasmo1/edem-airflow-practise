@@ -79,11 +79,27 @@ Pass: `airflow`
 - Analyse DAG `dag_refactor`:
   - How do you think it can be improved? (TIP: check Dynamic DAGs)
 
-### ETL practise: WordPress
+### Project: Building a Realistic ELT Pipeline for Blog Posts Using Airflow
 
-- We want to save in a JSON file the posts of a WordPress website. How can we do that?
-- What if we want to save multiple websites, but we want the tasks to be executed one by one? (TIP: use a pool or limit
-  number of active tasks per DAG)
-- What if we want to split the results per day?
+The goal of this exercise is to simulate a full data pipeline using Airflow, from external API to a queryable data mart.
+You’ll create a DAG that extracts blog posts from a WordPress website, stores them in raw format, loads them into a database, and then transforms them into a clean table ready for analysis (like in a real data warehouse).
+
+The idea is to have a DAG that has the following tasks:
+- Extract: Extracts data from a WordPress website and stores it in a JSON file (raw format).
+  - Use your own API wrapper to extract the data from the WordPress API. You can use the `requests` library to make HTTP requests and the `json` library to handle JSON data.
+  - Store the JSON data in a folder with the date of the extraction: `/data/raw/YYYYMMDD/<site>/posts.json`
+- Load: Loads the JSON data into a database (e.g. PostgreSQL) staging table.
+  - The staging table should reflect the raw structure of the JSON data. You can load the whole JSON object or flatten the relevant fields.
+  - Use the `psycopg2` or `sqlalchemy` library to connect to PostgreSQL and load the data into a staging table.
+- Transform: Transforms the data with SQL into `posts` table (Wordpress data mart).
+  - Select only useful fields and clean values if needed.
+
+Bonus:
+- Make the DAG run daily to extract the posts modified the day before.
+- Parametrize the DAG to extract data from different WordPress websites, having a finite list of websites to choose from.
+- Parametrize the DAG to choose the dates to extract data from.
+- Save the posts in a folder that contains the date of the extraction.
+- Create a new DAG to validate the data in the `posts` table and trigger it from the first DAG (e.g. check PK duplicates, checks nulls, check empty table, etc.)
+- Add a visualization layer to the `docker-compose.yml` file to create a dashboard with the data in the `posts` table (e.g. Metabase)
 
 Example of WordPress websites in this [url](https://elementor.com/blog/famous-wordpress-websites/)

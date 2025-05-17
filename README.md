@@ -2,7 +2,9 @@
 
 After cloning this repo, follow the steps below
 
-### Setting up a new virtual environment
+### Setting up a new virtual environment for local development
+
+IMPORTANT: this step is only needed if you want to avoid error in your IDE. However, it's not mandatory to run Airflow.
 
 Ensure you're using Python 3.8 to 3.12. You can check your Python version by running the following command in your terminal:
 
@@ -28,6 +30,9 @@ Install requirements. Run in the terminal the following command:
 pip install --upgrade pip
 pip install -r requirements.txt
 ```
+
+Select the interpreter in your IDE to the one in the virtual environment.
+
 
 ### Launching Airflow
 

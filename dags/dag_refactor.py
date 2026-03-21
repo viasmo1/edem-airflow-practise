@@ -1,5 +1,5 @@
-from airflow import DAG
-from airflow.operators.python import PythonOperator
+from airflow.sdk import DAG
+from airflow.providers.standard.operators.python import PythonOperator
 from datetime import datetime
 
 def fetch(site):
@@ -10,7 +10,7 @@ sites = ['site_1', 'site_2', 'site_3']
 with DAG(
     dag_id='refactor_dag',
     start_date=datetime(2024, 1, 1),
-    schedule_interval=None,
+    schedule=None,
     catchup=False
 ) as dag:
 

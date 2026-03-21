@@ -6,7 +6,7 @@ After cloning this repo, follow the steps below
 
 IMPORTANT: this step is only needed if you want to avoid error in your IDE. However, it's not mandatory to run Airflow.
 
-Ensure you're using Python 3.8 to 3.12. You can check your Python version by running the following command in your terminal:
+Ensure you're using Python 3.8 to 3.13. You can check your Python version by running the following command in your terminal:
 
 ```bash
 python3 --version
@@ -43,16 +43,24 @@ Once you have the docker-compose.yml:
 
 - Run in the terminal the following command:
 
-```bash
-docker-compose up
-```
+`docker compose up`
 
 Once the installation is finished, go to `http://localhost:8080`
 
 User: `airflow`
 Pass: `airflow`
 
-## Exercise
+### Cleaning up the environment
+
+- Stop containers and remove volumes:
+
+`docker compose down -v --remove-orphans`
+
+- Remove the virtual environment:
+
+`rm -rf venv`
+
+## Exercises
 
 ### DAG practise
 
@@ -62,7 +70,7 @@ Pass: `airflow`
     - start: does nothing, just organises visually the workflow
     - log_print: prints "HELLO MDA!!!" in the task log
     - end: does nothing, just organises visually the workflow
-- Modify the DAG so that it tells us if today is Saturday or not
+- Modify the DAG so that it tells us if today is Monday or not
 - Label the branches arrows
 - Is the end_task status correct after the branches are done?
 - Find a way to better organize and visualize the DAG

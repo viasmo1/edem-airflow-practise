@@ -1,7 +1,6 @@
-from airflow import DAG
-from airflow.operators.python import PythonOperator
+from airflow.sdk import DAG, chain
+from airflow.providers.standard.operators.python import PythonOperator
 from datetime import datetime
-from airflow.models.baseoperator import chain
 
 def extract():
     print("Extracting data")
@@ -18,7 +17,7 @@ def notify():
 with DAG(
     dag_id='analyze_this_dag',
     start_date=datetime(2024, 1, 1),
-    schedule_interval=None,
+    schedule=None,
     catchup=False
 ) as dag:
     t1 = PythonOperator(task_id='extract', python_callable=extract)

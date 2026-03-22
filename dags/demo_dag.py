@@ -6,7 +6,7 @@ import os
 def cpu_heavy_task(task_id):
     print(f"Task {task_id} running on PID {os.getpid()}")
     x = 0
-    for _ in range(100_000_000):  # adjust if too slow/fast
+    for _ in range(50_000_000):  # adjust if too slow/fast
         x += 1
     return x
 

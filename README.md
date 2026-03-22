@@ -105,7 +105,6 @@ or
 - Add tags to the DAG
 - Set the `start_date` to a date in the past (a few days ago). What happens when you activate the DAG?
 - How would you prevent the behavior of the previous question?
-- Now imagine that you want the `catchup` to be true but you only want to execute 5 days. How would you do that?
 
 #### DAG debugging
 
@@ -116,7 +115,7 @@ or
   - What happens if the `transform` task fails?
   - How would you make it try again if it fails?
   - What happens if the `load` task is skipped? Will the complete notification still run?
-- Analyse DAG `dag_refactor`:
+- Analyse DAG `refactor_dag`:
   - How do you think it can be improved? (TIP: check Dynamic DAGs)
 
 ### Project: Building a Realistic ELT Pipeline for Blog Posts Using Airflow

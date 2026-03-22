@@ -2,7 +2,7 @@
 
 After cloning this repo, follow the steps below
 
-### Setting up a new virtual environment for local development
+## Setting up a new virtual environment for local development
 
 IMPORTANT: this step is only needed if you want to avoid error in your IDE. However, it's not mandatory to run Airflow.
 
@@ -34,27 +34,54 @@ pip install -r requirements.txt
 Select the interpreter in your IDE to the one in the virtual environment.
 
 
-### Launching Airflow
+## Launching Airflow
 
-- Try to launch Airflow in docker compose with LocalExecutor configuration
-
-You can also wait until your teacher gives you the solution, but it's always worth to try!
-Once you have the docker-compose.yml:
+### LocalExecutor
 
 - Run in the terminal the following command:
 
-`docker compose up`
+`docker compose -f docker-compose.local_executor.yml up`
 
 Once the installation is finished, go to `http://localhost:8080`
 
 User: `airflow`
 Pass: `airflow`
 
-### Cleaning up the environment
+#### Questions about `demo_dag`
+
+- We have 12 tasks and 4 CPUs. How many tasks run at the same time? Why?
+- Where are the tasks executed? In which container? TIP: use `docker stats`
+- How many processes are created? TIP: `docker top edem-airflow-practise-airflow-scheduler-1`
+- Let's break the scheduler while running the DAG with `docker stop edem-airflow-practise-airflow-scheduler-1`. What happens? Why?
+- Let's change the `AIRFLOW__CORE__PARALLELISM` to 32. What happens? Why? How long does the DAG take to run now?
+
+### CeleryExecutor
+
+- Run in the terminal the following command:
+
+`docker compose -f docker-compose.celery_executor.yml up`
+
+Once the installation is finished, go to `http://localhost:8080`
+
+User: `airflow`
+Pass: `airflow`
+
+#### Questions about `demo_dag`
+
+- If you have only one worker, do you expect any difference with the LocalExecutor? Why?
+- Let's scale the workers to 3: `docker compose -f docker-compose.celery_executor.yml up --scale airflow-worker=3`. What happens? Why? How long does the DAG take to run now?
+- Let's break one worker while running the DAG with `docker stop edem-airflow-practise-airflow-worker-1`. What happens? Why?
+- Can the LocalExecutor ever behave like the CeleryExecutor?
+
+## Cleaning up the environment
 
 - Stop containers and remove volumes:
 
-`docker compose down -v --remove-orphans`
+`docker compose -f docker-compose.local_executor.yml down -v --remove-orphans`
+
+or
+
+`docker compose -f docker-compose.celery_executor.yml down -v --remove-orphans`
 
 - Remove the virtual environment:
 

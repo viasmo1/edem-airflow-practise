@@ -1,6 +1,7 @@
-/venv
+/config
 /logs
 /plugins
+/venv
 *__pycache__
 /postgres_db
 /.vscode

@@ -1,18 +1,7 @@
-from airflow.sdk import DAG
-from airflow.providers.standard.operators.python import PythonOperator, BranchPythonOperator
+from airflow.sdk import DAG, task
 from airflow.providers.standard.operators.empty import EmptyOperator
 from datetime import datetime
 
-def classify_number():
-    number = 0
-    if number > 0:
-        return 'positive'
-    elif number < 0:
-        return 'negative'
-    return 'positive'
-
-def log_result():
-    print("Correct branch executed.")
 
 with DAG(
     dag_id='branch_debug',
@@ -20,16 +9,23 @@ with DAG(
     schedule=None,
     catchup=False,
 ) as dag:
-
-    branch = BranchPythonOperator(
-        task_id='classify_number',
-        python_callable=classify_number,
-    )
-
-    positive = PythonOperator(task_id='positive', python_callable=log_result)
-    negative = PythonOperator(task_id='negative', python_callable=log_result)
-    zero = PythonOperator(task_id='zero', python_callable=log_result)
-
+    
     end = EmptyOperator(task_id='end')
+    
+    @task.branch(task_id='classify_number')
+    def classify_number_task():
+        number = 0
+        if number > 0:
+            return 'positive'
+        elif number < 0:
+            return 'negative'
+        return 'positive'
+    
+    branch = classify_number_task()
 
-    branch >> [positive, negative, zero] >> end
+    for task_id in ['positive', 'negative', 'zero']:
+        @task(task_id=task_id)
+        def log_result():
+            print("Correct branch executed.")
+
+        branch >> log_result() >> end
